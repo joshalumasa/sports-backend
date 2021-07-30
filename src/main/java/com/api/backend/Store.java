@@ -3,7 +3,8 @@ package com.api.backend;
 import java.io.File;
 
 public class Store {
-    File dir = new File(File.separator+"home"+File.separator+"amos"+File.separator+"dev"+File.separator+"news-app");
+    // enter the path/to/your/news-app
+    File dir = new File(File.separator+"home"+File.separator+"amos"+File.separator+"dev"+File.separator+"sports backend api");
 
     public File getDir() {
         createFpDir();
@@ -46,7 +47,5 @@ public class Store {
                 e.printStackTrace();
             }
         }
-        else
-            System.out.println("Dir exists");
     }
 }
