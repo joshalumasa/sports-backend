@@ -1,4 +1,4 @@
 package com.api.backend;
 
-public class Database {
+public class Constants {
 }
