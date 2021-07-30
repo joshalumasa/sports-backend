@@ -63,15 +63,15 @@ public class ApiCalls {
                     int season = objects.getJSONObject("league").getInt("season");
 
 
-                    JSONArray standings = new JSONArray();
+                    JSONObject standings = new JSONObject(property.toString());
 
-                    int rank = standings.getJSONObject(Integer.parseInt("standings")).getInt("rank");
+                    int rank = standings.getJSONObject("standings").getInt("rank");
                     Database db = new Database();
 
                     JSONObject team = new JSONObject(property.toString());
-                    String team_name = standings.getJSONObject(Integer.parseInt("team")).getString("name");
+                    String team_name = standings.getJSONObject("team").getString("name");
 
-                    JSONObject points = standings.getJSONObject(Integer.parseInt("points"));
+                    JSONObject points = standings.getJSONObject("points");
 
 //                        JSONObject coverage = season.getJSONObject("coverage");
 //                        boolean top_scorers = coverage.getBoolean("top_scorers");
