@@ -5,7 +5,6 @@
     API in and sqlite database.
     </p>
       <h2 align="center">API Endpoint consumed</h2>
-    <p>
 ```
 https://api-football-v1.p.rapidapi.com/v3/leagues/seasons
 ``` - Seasons endpoint
@@ -15,6 +14,5 @@ https://api-football-v1.p.rapidapi.com/v3/leagues
 ```
 https://api-football-v1.p.rapidapi.com/v3/standings?season=2020&league=39
 ``` - standings
-    </p>
   </body>
 </html>
