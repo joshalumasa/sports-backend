@@ -9,7 +9,7 @@ public class Constants {
     String result = "";
     InputStream inputStream;
 
-    public static String seasons_endpoint = "https://api-football-v1.p.rapidapi.com/v3/standings?season=2020&league=39";
+    public static String leagues_endpoint = "https://api-football-v1.p.rapidapi.com/v3/leagues";
     public static String rapid_apiKey = "407f57c6c3msh39a5081824ca9eep1f6f52jsn6a9a6e410883";
 
     public String getPropValues(String propertyKey) throws IOException {

@@ -73,40 +73,35 @@ public class Database {
     /**
      * Adding the seasons to a database
      */
-    public void addSeasons(String league_name,
-                           String country_name,
-                           int season,
-                           int rank,
-                           String team_name,
-                           JSONObject points) {
-        String dbName = "seasons.db";
+    public void addFixtures(int year, String league_name, String country_name, String current, String top_scorers, String injuries){
+        String dbName = "fixtures.db";
 
         File db = new File(dbName);
-        if (!db.exists()) {
+        if (!db.exists()){
             createNewDatabase(dbName);
         }
-        String sql = "CREATE TABLE `seasons` (\n" +
+        String sql = "CREATE TABLE `fixtures` (\n" +
                 "\t`id`\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
                 "\t`league_name`\tTEXT NOT NULL,\n" +
-                "\t`country_name`\tTEXT NOT NULL" +
-                "\t`season`\tTEXT NOT NULL,\n" +
-                "\t`rank`\tTEXT NOT NULL,\n" +
-                "\t`team_name`\tTEXT NOT NULL,\n" +
-                "\t`points`\tTEXT NOT NULL,\n" +
+                "\t`year`\tTEXT NOT NULL,\n" +
+                "\t`country_name`\tTEXT NOT NULL,\n" +
+                "\t`current`\tTEXT NOT NULL,\n" +
+                "\t`top_scorers`\tTEXT NOT NULL,\n" +
+                "\t`injuries`\tTEXT\n" +
                 ");";
 
         createNewTable(dbName, sql);
 
-        String insert = "INSERT INTO `seasons`(`league_name`,`country_name`,`season`, `rank`, `team_name`, `points`) VALUES (?,?,?,?,?,?,?);";
+        String insert = "INSERT INTO `fixtures`(`year`,`league_name`,`country_name`,`current`, `top_scorers`, `injuries`) VALUES (?,?,?,?,?,?);";
 
         try (Connection conn = this.connect(dbName);
              PreparedStatement pstmt = conn.prepareStatement(insert)) {
-            pstmt.setString(1, league_name);
-            pstmt.setString(2, country_name);
-            pstmt.setString(3, String.valueOf(season));
-            pstmt.setString(5, String.valueOf(rank));
-            pstmt.setString(6, team_name);
-            pstmt.setString(7, String.valueOf(points));
+            pstmt.setString(1, String.valueOf(year));
+            pstmt.setString(2, league_name);
+            pstmt.setString(3, country_name);
+            pstmt.setString(4, current);
+            pstmt.setString(5, top_scorers);
+            pstmt.setString(6, injuries);
             pstmt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getMessage());

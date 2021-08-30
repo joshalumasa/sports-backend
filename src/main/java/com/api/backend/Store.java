@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Store {
     // enter the path/to/your/news-app
-    File dir = new File(File.separator+"home"+File.separator+"amos"+File.separator+"dev"+File.separator+"sports backend api");
+    File dir = new File(File.separator+"home"+File.separator+"joshua"+File.separator+"IdeaProjects"+File.separator+"sports_backend_api");
 
     public File getDir() {
         createFpDir();
